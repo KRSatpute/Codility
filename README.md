@@ -1,1 +1,1 @@
-# Collection of solutions in C# for programmer lessons on codility
+# C# solutions for programmer lesson problems on codility
