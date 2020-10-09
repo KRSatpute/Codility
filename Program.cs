@@ -10,8 +10,8 @@ namespace Codility
         {
             if (args is null)
                 Console.WriteLine("Hello World!");
-
-            Console.WriteLine(LessonFive.CountDiv(0, 2000000000, 2000000000));
+            
+            Console.WriteLine(LessonSix.NumberOfDiscIntersections(new int[]{1,5,2,1,4,0}));
         }
     }
 }
