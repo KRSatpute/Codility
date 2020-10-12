@@ -11,7 +11,7 @@ namespace Codility
             if (args is null)
                 Console.WriteLine("Hello World!");
             
-            Console.WriteLine(LessonSix.NumberOfDiscIntersections(new int[]{1,5,2,1,4,0}));
+            Console.WriteLine(LessonSeven.Brackets("({["));
         }
     }
 }
