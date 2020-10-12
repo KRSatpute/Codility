@@ -32,8 +32,8 @@ namespace Codility
 
             Array.Sort(A);
             
-            if (A[A.Length - 1] <= 0 || A[0] >= 0)
-                return A[A.Length - 1] * A[A.Length - 2] * A[A.Length - 3];
+            if (A[^1] <= 0 || A[0] >= 0)
+                return A[^1] * A[^2] * A[^3];
             
             int[] AbsSorted = A.OrderBy(Math.Abs).Reverse().ToArray();
 
@@ -88,7 +88,7 @@ namespace Codility
                     if (result > 10000000)
                         return -1;
                 }
-                
+
                 dpe.TryGetValue(i, out value);
                 t -= value;
             }
