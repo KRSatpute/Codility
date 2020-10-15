@@ -10,11 +10,11 @@ namespace Codility
         {
             if (A.Length < 3)
                 return 0;
-            
+
             Array.Sort(A);
 
-            for (int i=0; i < A.Length - 2; i++)
-            {  
+            for (int i = 0; i < A.Length - 2; i++)
+            {
                 if (A[i] + A[i + 1] > A[i + 2])
                     return 1;
 
@@ -31,10 +31,10 @@ namespace Codility
                 return A.Aggregate(1, (a, b) => a * b);
 
             Array.Sort(A);
-            
+
             if (A[^1] <= 0 || A[0] >= 0)
                 return A[^1] * A[^2] * A[^3];
-            
+
             int[] AbsSorted = A.OrderBy(Math.Abs).Reverse().ToArray();
 
             int maxProduct = AbsSorted.Max();
@@ -53,18 +53,18 @@ namespace Codility
                 AbsSorted[1] = temp;
             }
 
-            for(int i = 0, j = 1, k = 2; k < AbsSorted.Length; k++)
+            for (int i = 0, j = 1, k = 2; k < AbsSorted.Length; k++)
             {
                 int prod = AbsSorted[i] * AbsSorted[j] * AbsSorted[k];
 
                 if (prod > maxProduct)
                     return prod;
             }
-            
+
             return AbsSorted[1] * AbsSorted[2] * AbsSorted[3];
         }
 
-        public static int NumberOfDiscIntersections(int [] A)
+        public static int NumberOfDiscIntersections(int[] A)
         {
             long result = 0;
             Dictionary<long, int> dps = new Dictionary<long, int>();
@@ -106,12 +106,12 @@ namespace Codility
         {
             if (A.Length == 0)
                 return 0;
-            
+
             HashSet<int> DistinctValues = new HashSet<int>();
 
-            foreach(int num in A)
+            foreach (int num in A)
                 DistinctValues.Add(num);
-            
+
             return DistinctValues.Count;
         }
     }

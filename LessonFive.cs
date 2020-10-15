@@ -10,7 +10,7 @@ namespace Codility
         {
             if (A == B)
                 return B % K == 0 ? 1 : 0;
-            
+
             if (K == 1)
                 return B - A + 1;
 
@@ -19,7 +19,7 @@ namespace Codility
 
             for (int i = 0; i <= B; i++)
             {
-                if((A + i) % K == 0)
+                if ((A + i) % K == 0)
                 {
                     firstTrueMod = A + i;
                     trueModCount = 1;
@@ -41,7 +41,7 @@ namespace Codility
 
             if (A.Length == 1)
                 return 0;
-            
+
             int positionOfFirstCarToEast = Array.IndexOf(A, 0);
             int positionOfFirstCarToWest = Array.IndexOf(A, 1);
 
@@ -63,7 +63,7 @@ namespace Codility
                     }
                 }
             }
-            
+
             return passingCars;
         }
     }

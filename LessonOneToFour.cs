@@ -30,21 +30,21 @@ namespace Codility
         {
             if (A.Length == 1)
                 return A[0] != 1 ? 1 : 2;
-            
+
             Array.Sort(A);
 
             if (A[^1] < 1)
                 return 1;
-            
+
             if (A[0] > 1)
                 return 1;
-            
+
             for (int i = 0; i < A.Length; i++)
             {
                 if (A[i] < 0)
                     A[i] = 0;
             }
-            
+
             int minValue = A[0] + 1;
             int index = 1;
 
@@ -54,9 +54,9 @@ namespace Codility
                     break;
                 else
                     minValue = A[index] + 1;
-                
+
                 index++;
-            }while(index < A.Length);
+            } while (index < A.Length);
 
             return minValue < 1 ? 1 : minValue;
         }
@@ -76,7 +76,7 @@ namespace Codility
                         counters[num - 1] = maxSetValue + 1;
                     else
                         counters[num - 1] += 1;
-                    
+
                     lastUpdatedCounter = counters[num - 1] > lastUpdatedCounter ? counters[num - 1] : lastUpdatedCounter;
                 }
                 else
@@ -104,20 +104,20 @@ namespace Codility
         public static int TapeEquilibrium(int[] A)
         {
             int arraySum = 0;
-            
-            foreach(int num in A)
+
+            foreach (int num in A)
                 arraySum += num;
-            
+
             int pLeft = A[0];
             int pRight = arraySum - pLeft;
 
             int minDiff = Math.Abs(pLeft - pRight);
-            
-            for(int p = 1; p < A.Length; p++)
+
+            for (int p = 1; p < A.Length; p++)
             {
                 if (Math.Abs(pLeft - pRight) < minDiff)
                     minDiff = Math.Abs(pLeft - pRight);
-                
+
                 pLeft += A[p];
                 pRight -= A[p];
             }
@@ -131,7 +131,7 @@ namespace Codility
                 return 1;
 
             Array.Sort(A);
-            
+
             if (A[0] != 1)
                 return 1;
 
@@ -162,7 +162,7 @@ namespace Codility
             Dictionary<int, int> numCounts = new Dictionary<int, int>();
             int oddOccurence = 0;
 
-            foreach(int num in A)
+            foreach (int num in A)
             {
                 if (numCounts.ContainsKey(num))
                     numCounts[num]++;
@@ -170,7 +170,7 @@ namespace Codility
                     numCounts.Add(num, 1);
             };
 
-            foreach(int num in numCounts.Keys)
+            foreach (int num in numCounts.Keys)
             {
                 if (numCounts[num] % 2 != 0)
                 {
@@ -191,7 +191,7 @@ namespace Codility
 
             K = K >= A.Length ? K % A.Length : K;
 
-            for(int i = 0; i < A.Length; i++)
+            for (int i = 0; i < A.Length; i++)
             {
                 int position = i + K;
                 int newPosition = position >= A.Length ? position - A.Length : position;
@@ -200,9 +200,9 @@ namespace Codility
             }
 
             return rotatedArray;
-        } 
-        
-        public static int BinaryGap(int N) 
+        }
+
+        public static int BinaryGap(int N)
         {
             Console.WriteLine(Convert.ToString(N, 2));
             char[] binary = Convert.ToString(N, 2).ToCharArray();
@@ -214,9 +214,9 @@ namespace Codility
 
             int largestGap = 0;
 
-            foreach(char c in binary)
-            { 
-                if(c == '1' && gap == 0)
+            foreach (char c in binary)
+            {
+                if (c == '1' && gap == 0)
                 {
                     gap++;
                     continue;
@@ -231,7 +231,7 @@ namespace Codility
                     largestGap = gapCount > largestGap ? gapCount : largestGap;
                     gapCount = 0;
                 }
-                
+
             }
 
             return largestGap;
