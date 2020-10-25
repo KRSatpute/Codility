@@ -6,6 +6,31 @@ namespace Codility
 {
     public static class LessonSeven
     {
+        public static int Fish(int[] A, int[] B)
+        {
+            Stack<int> aliveFishes = new Stack<int>();
+
+            for (int i = 0; i < A.Length; i++)
+            {
+                if (aliveFishes.Count == 0)
+                    aliveFishes.Push(i);
+                else
+                {
+                    while (aliveFishes.Count != 0 && B[i] - B[aliveFishes.Peek()] == -1 && A[aliveFishes.Peek()] < A[i])
+                        aliveFishes.Pop();
+
+                    if (aliveFishes.Count != 0)
+                    {
+                        if (B[i] - B[aliveFishes.Peek()] != -1)
+                            aliveFishes.Push(i);
+                    }
+                    else
+                        aliveFishes.Push(i);
+                }
+            }
+            
+            return aliveFishes.Count;
+        }
 
         public static int StoneWalls(int[] H)
         {
